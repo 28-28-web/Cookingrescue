@@ -97,9 +97,9 @@ class BrevoHandler(SimpleHTTPRequestHandler):
         SimpleHTTPRequestHandler.end_headers(self)
 
 if __name__ == '__main__':
-    PORT = 3000
-    server = HTTPServer(('localhost', PORT), BrevoHandler)
-    print(f'Server running at http://localhost:{PORT}')
-    print(f'API endpoint: http://localhost:{PORT}/api/subscribe')
+    PORT = int(os.getenv('PORT', '3000'))
+    server = HTTPServer(('0.0.0.0', PORT), BrevoHandler)
+    print(f'Server running at http://0.0.0.0:{PORT}')
+    print(f'API endpoint: http://0.0.0.0:{PORT}/api/subscribe')
     print('Press Ctrl+C to stop')
     server.serve_forever()
