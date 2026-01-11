@@ -1,0 +1,21 @@
+{
+    "name": "cookingrescue-leadmagnet",
+    "version": "1.0.0",
+    "description": "Lead magnet landing page with Brevo integration",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "keywords": [
+        "lead-magnet",
+        "brevo",
+        "email-marketing"
+    ],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.18.2",
+        "cors": "^2.8.5",
+        "node-fetch": "^2.6.7"
+    }
+}

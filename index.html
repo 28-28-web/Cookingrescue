@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Get your FREE 7-Day Meal Prep Mastery Guide and transform your cooking routine. Learn the secrets to effortless healthy eating.">
+    <title>Free Meal Prep Guide - Cooking Rescue</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">🍳 Cooking Rescue</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Master Meal Prep in Just 7 Days</h1>
+                <p class="hero-subtitle">
+                    Stop wasting time and money on last-minute meals. Get our proven system 
+                    that busy people use to eat healthy without the stress.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lead Magnet Section -->
+    <section class="lead-magnet">
+        <div class="container">
+            <div class="lead-magnet-card">
+                <div class="lead-magnet-content">
+                    <!-- Image -->
+                    <div class="lead-magnet-image">
+                        <img src="meal-prep-guide.png" alt="7-Day Meal Prep Mastery Guide">
+                    </div>
+                    
+                    <!-- Info & Form -->
+                    <div class="lead-magnet-info">
+                        <h2>Get Your FREE Guide!</h2>
+                        <p>
+                            Discover the exact meal prep system that's helped thousands save 
+                            10+ hours per week and finally stick to healthy eating.
+                        </p>
+                        
+                        <ul class="benefits-list">
+                            <li class="benefit-item">
+                                <span class="benefit-icon">✓</span>
+                                <span class="benefit-text">Complete 7-day meal prep roadmap</span>
+                            </li>
+                            <li class="benefit-item">
+                                <span class="benefit-icon">✓</span>
+                                <span class="benefit-text">Time-saving shopping lists & templates</span>
+                            </li>
+                            <li class="benefit-item">
+                                <span class="benefit-icon">✓</span>
+                                <span class="benefit-text">Batch cooking strategies that actually work</span>
+                            </li>
+                            <li class="benefit-item">
+                                <span class="benefit-icon">✓</span>
+                                <span class="benefit-text">Storage hacks to keep food fresh longer</span>
+                            </li>
+                            <li class="benefit-item">
+                                <span class="benefit-icon">✓</span>
+                                <span class="benefit-text">Bonus: 15 easy mix-and-match recipes</span>
+                            </li>
+                        </ul>
+                        
+                        <!-- Signup Form -->
+                        <form id="leadMagnetForm" class="signup-form">
+                            <div class="form-group">
+                                <input 
+                                    type="text" 
+                                    id="firstName" 
+                                    name="firstName" 
+                                    class="form-input" 
+                                    placeholder="First Name"
+                                    required
+                                >
+                                <div class="error-message hidden" id="firstNameError">
+                                    ⚠ Please enter your first name
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <input 
+                                    type="email" 
+                                    id="email" 
+                                    name="email" 
+                                    class="form-input" 
+                                    placeholder="Email Address"
+                                    required
+                                >
+                                <div class="error-message hidden" id="emailError">
+                                    ⚠ Please enter a valid email address
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn" id="submitBtn">
+                                Get My Free Guide Now!
+                            </button>
+                            
+                            <div class="success-message hidden" id="successMessage">
+                                ✓ Success! Check your email for your free guide.
+                            </div>
+                        </form>
+                        
+                        <p style="font-size: 0.875rem; color: var(--text-muted); margin-top: 1rem; text-align: center;">
+                            🔒 We respect your privacy. Unsubscribe anytime.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="trust-section">
+        <div class="container">
+            <h3>Join Thousands of Happy Home Cooks</h3>
+            <div class="trust-badges">
+                <div class="trust-badge">
+                    <div class="trust-number">5,000+</div>
+                    <div class="trust-label">Downloads</div>
+                </div>
+                <div class="trust-badge">
+                    <div class="trust-number">4.9★</div>
+                    <div class="trust-label">Average Rating</div>
+                </div>
+                <div class="trust-badge">
+                    <div class="trust-number">10+</div>
+                    <div class="trust-label">Hours Saved/Week</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Cooking Rescue. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
