@@ -141,8 +141,8 @@ form.addEventListener('submit', async (e) => {
         // Submit to Brevo
         await submitToBrevo(firstName, email);
 
-        // Show success message
-        showSuccess();
+        // Redirect to thank you page with personalization
+        window.location.href = `/thank-you.html?firstName=${encodeURIComponent(firstName)}`;
 
         // Optional: Track conversion with analytics
         if (typeof gtag !== 'undefined') {
