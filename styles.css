@@ -1052,3 +1052,38 @@ button.primary-cta {
         justify-content: center;
     }
 }
+
+/* ========================================
+   LOGO STYLING
+   ======================================== */
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 50px;
+    width: auto;
+    transition: transform var(--transition-base);
+}
+
+.logo:hover .logo-img {
+    transform: scale(1.05);
+}
+
+.footer .logo-img {
+    height: 60px;
+    margin-bottom: var(--space-sm);
+}
+
+@media (max-width: 768px) {
+    .logo-img {
+        height: 40px;
+    }
+    
+    .footer .logo-img {
+        height: 50px;
+    }
+}
