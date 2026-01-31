@@ -3,330 +3,112 @@
 
 <head>
     <meta charset="UTF-8">
-    <met name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description"
-            content="Stop wasting hours in the kitchen. Transform chaotic meal times into family-favorite dinners in 30 minutes or less—without the stress.">
-        <title>CookingRescue - Stop Wasting Hours in the Kitchen</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CookingRescue - The Executive Nutrition Protocol</title>
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap"
-            rel="stylesheet">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap"
+        rel="stylesheet">
 
-        <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="chatbot.css">
 </head>
 
 <body>
+
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
         <div class="container">
             <div class="nav-content">
                 <a href="#" class="logo">
-                    <img src="logo.jpg" alt="Cooking Rescue" class="logo-img">
+                    🍳 CookingRescue
                 </a>
-                <div class="nav-links">
-                    <a href="#how-it-works">How It Works</a>
-                    <a href="#results">Results</a>
-                    <a href="#faq">FAQ</a>
-                    <a href="#get-started" class="nav-cta">Get Started Free</a>
+                <div class="nav-menu">
+                    <a href="#problem">The Problem</a>
+                    <a href="#protocol">The Protocol</a>
+                    <a href="#masterclass" class="btn-primary" style="padding: 0.5rem 1.2rem; font-size: 1rem;">Enroll
+                        Now</a>
                 </div>
-                <button class="mobile-menu-btn" aria-label="Toggle menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- HERO SECTION -->
     <section class="hero">
+        <div class="hero-bg-glow"></div>
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <!-- Trust Badge -->
-                    <div class="trust-badge-hero">
-                        <span class="badge-icon">✓</span>
-                        <span>Trusted by 50,000+ Home Cooks</span>
+            <div class="hero-grid">
+                <!-- Left: Copy & Hook -->
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        ✨ Trusted by 50,000+ Founders & Professionals
                     </div>
 
-                    <h1 class="hero-headline">
-                        Stop Wasting Hours in the Kitchen
+                    <h1>
+                        Stop Outsourcing Your <span class="text-gradient">Health</span> to DoorDash
                     </h1>
 
-                    <p class="hero-subheadline">
-                        Transform chaotic meal times into family-favorite dinners in <strong>30 minutes or
-                            less</strong>—without the stress, planning overwhelm, or expensive takeout.
+                    <p class="hero-sub">
+                        The <strong>15-Minute Nutrition Protocol</strong> engineered for high-performance individuals.
+                        Reclaim 12+ hours/week and automate your nutrition without the mental load.
                     </p>
 
-                    <div class="hero-cta-container">
-                        <a href="#get-started" class="primary-cta">
-                            <span class="cta-text">Get Your Free Meal Plan</span>
-                            <svg class="cta-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                <path d="M4 10h12m-6-6l6 6-6 6" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" />
-                            </svg>
+                    <div class="hero-actions">
+                        <a href="#masterclass" class="btn-primary">
+                            Get The System ($49)
                         </a>
-                        <p class="cta-subtitle">No credit card required • Free forever</p>
+                        <a href="#lead-magnet" class="btn-secondary">
+                            Free ROI Guide
+                        </a>
                     </div>
 
-                    <!-- Social Proof Bar -->
-                    <div class="social-proof-bar">
-                        <div class="proof-item">
-                            <div class="stars">⭐⭐⭐⭐⭐</div>
-                            <span class="rating-text">4.9/5 rating</span>
+                    <div class="hero-trust-bar">
+                        <div class="trust-item">
+                            <span class="trust-metric">15h+</span>
+                            <span class="trust-label">Reclaimed/Wk</span>
                         </div>
-                        <div class="proof-divider"></div>
-                        <div class="proof-item">
-                            <span class="proof-number">50,000+</span>
-                            <span class="proof-label">Happy cooks</span>
+                        <div class="trust-item">
+                            <span class="trust-metric">$400+</span>
+                            <span class="trust-label">Saved/Mo</span>
                         </div>
-                        <div class="proof-divider"></div>
-                        <div class="proof-item">
-                            <span class="proof-number">10+</span>
-                            <span class="proof-label">Hours saved/week</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="hero-image">
-                    <div class="image-placeholder">
-                        <span class="placeholder-text">👨‍🍳</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Trust Logos -->
-        <div class="trust-logos">
-            <div class="container">
-                <p class="logos-label">As Featured In:</p>
-                <div class="logos-grid">
-                    <div class="logo-item">Bon Appétit</div>
-                    <div class="logo-item">Food Network</div>
-                    <div class="logo-item">The Kitchn</div>
-                    <div class="logo-item">Serious Eats</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Problem Agitation Section -->
-    <section class="problem-section">
-        <div class="container">
-            <h2 class="section-title">Sound Familiar?</h2>
-            <p class="section-subtitle">You're not alone. Thousands of home cooks struggle with the same challenges
-                every single day.</p>
-
-            <div class="problems-grid">
-                <div class="problem-card">
-                    <div class="problem-icon">🕐</div>
-                    <h3>Spending 2+ Hours Cooking Every Night</h3>
-                    <p>By the time dinner is done, you're exhausted and the kitchen is a disaster zone.</p>
-                </div>
-
-                <div class="problem-card">
-                    <div class="problem-icon">💸</div>
-                    <h3>Throwing Away $400+/Month</h3>
-                    <p>Spoiled groceries, last-minute takeout, and wasted ingredients add up fast.</p>
-                </div>
-
-                <div class="problem-card">
-                    <div class="problem-icon">😰</div>
-                    <h3>The Daily 5pm Panic</h3>
-                    <p>"What's for dinner?" The question that haunts every busy parent and professional.</p>
-                </div>
-
-                <div class="problem-card">
-                    <div class="problem-icon">🥡</div>
-                    <h3>Relying on Expensive Takeout</h3>
-                    <p>You know it's not healthy or budget-friendly, but what other choice do you have?</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Solution Section -->
-    <section id="how-it-works" class="solution-section">
-        <div class="container">
-            <h2 class="section-title">Here's How CookingRescue Changes Everything</h2>
-            <p class="section-subtitle">Our proven 3-step system transforms meal chaos into effortless routines</p>
-
-            <div class="solution-steps">
-                <div class="step-card">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>Plan Like a Pro</h3>
-                        <p>Get your personalized 7-day meal plan with shopping lists, templates, and foolproof recipes.
-                            No more standing in the grocery store wondering what to buy.</p>
-                        <ul class="step-benefits">
-                            <li>Pre-made shopping lists</li>
-                            <li>Dietary customization</li>
-                            <li>Zero food waste strategy</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="step-card">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>Prep in 30 Minutes</h3>
-                        <p>Follow our simple, tested recipes designed for busy people. Each meal takes 30 minutes or
-                            less from start to finish—no culinary degree required.</p>
-                        <ul class="step-benefits">
-                            <li>Step-by-step instructions</li>
-                            <li>Common ingredients only</li>
-                            <li>Time-saving shortcuts</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="step-card">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>Enjoy & Repeat</h3>
-                        <p>Serve delicious, nutritious meals your family actually loves. Watch as mealtime stress melts
-                            away and you reclaim hours of your week.</p>
-                        <ul class="step-benefits">
-                            <li>Family-approved flavors</li>
-                            <li>Leftover optimization</li>
-                            <li>Build lasting habits</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Results/Testimonials Section -->
-    <section id="results" class="results-section">
-        <div class="container">
-            <h2 class="section-title">Real Results from Real Home Cooks</h2>
-            <p class="section-subtitle">Join thousands who've transformed their kitchen chaos into calm confidence</p>
-
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"This guide completely changed how I approach cooking. I went from
-                        ordering takeout 5 nights a week to meal prepping like a pro. Saved over $400 last month!"</p>
-                    <p class="testimonial-author">— Sarah M., San Francisco</p>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"As a busy mom of three, I thought meal prep was impossible. This system
-                        is so simple and practical. My kids actually eat the meals I prep now!"</p>
-                    <p class="testimonial-author">— Jennifer K., Austin</p>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"Finally lost 15 pounds because I'm actually eating the healthy food I
-                        prep instead of grabbing junk. The storage tips alone are worth downloading this!"</p>
-                    <p class="testimonial-author">— Michael R., New York</p>
-                </div>
-            </div>
-
-            <!-- Stats Bar -->
-            <div class="stats-bar">
-                <div class="stat-item">
-                    <span class="stat-number">10+</span>
-                    <span class="stat-label">Hours Saved Weekly</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">$400+</span>
-                    <span class="stat-label">Saved Monthly</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">96%</span>
-                    <span class="stat-label">Satisfaction Rate</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">50K+</span>
-                    <span class="stat-label">Happy Cooks</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Offer Section -->
-    <section id="get-started" class="offer-section">
-        <div class="container">
-            <div class="offer-container">
-                <h2 class="section-title">Start Your 7-Day Meal Prep Journey (FREE)</h2>
-                <p class="section-subtitle">Everything you need to transform your kitchen chaos—at no cost</p>
-
-                <div class="value-stack">
-                    <div class="value-item">
-                        <span class="value-check">✓</span>
-                        <div class="value-text">
-                            <strong>7-Day Meal Prep Blueprint</strong>
-                            <span>Complete step-by-step system</span>
-                        </div>
-                    </div>
-                    <div class="value-item">
-                        <span class="value-check">✓</span>
-                        <div class="value-text">
-                            <strong>Shopping Lists & Templates</strong>
-                            <span>Never wonder what to buy again</span>
-                        </div>
-                    </div>
-                    <div class="value-item">
-                        <span class="value-check">✓</span>
-                        <div class="value-text">
-                            <strong>15 Quick Recipes</strong>
-                            <span>All 30 minutes or less</span>
-                        </div>
-                    </div>
-                    <div class="value-item">
-                        <span class="value-check">✓</span>
-                        <div class="value-text">
-                            <strong>Kitchen Equipment Guide</strong>
-                            <span>$27 value - yours free</span>
-                        </div>
-                    </div>
-                    <div class="value-item">
-                        <span class="value-check">✓</span>
-                        <div class="value-text">
-                            <strong>5-Part Email Series</strong>
-                            <span>Expert tips delivered daily</span>
+                        <div class="trust-item">
+                            <span class="trust-metric">4.9/5</span>
+                            <span class="trust-label">Efficiency Rating</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- LEAD MAGNET FORM -->
-                <div class="offer-cta-container">
-                    <form id="leadMagnetForm" class="signup-form-inline">
-                        <div class="form-row">
-                            <input type="text" id="firstName" name="firstName" class="form-input-inline"
-                                placeholder="First Name" required>
-                            <input type="email" id="email" name="email" class="form-input-inline"
-                                placeholder="Email Address" required>
-                            <button type="submit" class="primary-cta large">
-                                <span class="cta-text">Get My Free Guide</span>
-                                <svg class="cta-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                    <path d="M4 10h12m-6-6l6 6-6 6" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" />
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="error-message hidden" id="formError"></div>
-                    </form>
+                <!-- Right: Visual / Calculator -->
+                <div class="hero-visual">
+                    <div class="glass-panel" style="padding: 2rem; position: relative;">
+                        <h3 style="margin-bottom: 1.5rem; text-align: center;">The "Takeout Tax" Calculator</h3>
 
-                    <div class="guarantee-badges">
-                        <div class="badge-item">
-                            <span class="badge-icon-small">🔒</span>
-                            <span>No credit card required</span>
+                        <div style="display: grid; gap: 1rem; margin-bottom: 1.5rem;">
+                            <div
+                                style="display: flex; justify-content: space-between; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                                <span>Weekly Ordering</span>
+                                <span class="highlight">5x / week</span>
+                            </div>
+                            <div
+                                style="display: flex; justify-content: space-between; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                                <span>Avg Cost + Fees</span>
+                                <span class="highlight">$45 / meal</span>
+                            </div>
+                            <div
+                                style="display: flex; justify-content: space-between; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                                <span>Wait Time (Lost Productivity)</span>
+                                <span class="highlight">45 mins</span>
+                            </div>
                         </div>
-                        <div class="badge-item">
-                            <span class="badge-icon-small">✉️</span>
-                            <span>Unsubscribe anytime</span>
-                        </div>
-                        <div class="badge-item">
-                            <span class="badge-icon-small">🔐</span>
-                            <span>100% privacy guaranteed</span>
+
+                        <div
+                            style="background: rgba(255, 140, 0, 0.1); padding: 1rem; border-radius: 8px; text-align: center; border: 1px solid rgba(255, 140, 0, 0.3);">
+                            <div style="font-size: 0.9rem; margin-bottom: 0.5rem;">Annual Cost of Inefficiency</div>
+                            <div style="font-size: 2rem; font-weight: 800; color: var(--appetite-orange);">$11,700 + 195
+                                Hours</div>
                         </div>
                     </div>
                 </div>
@@ -334,114 +116,142 @@
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section id="faq" class="faq-section">
+    <!-- PROBLEM AGITATION -->
+    <section class="section-problem" id="problem">
         <div class="container">
-            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="section-header">
+                <h2>The Hidden Cost of "Convenience"</h2>
+                <p>You're not bad at cooking. You're just using a broken system designed for 1950s housewives, not 2024
+                    professionals.</p>
+            </div>
 
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <h3 class="faq-question">Is this really free?</h3>
-                    <p class="faq-answer">Yes! The 7-Day Meal Prep Guide is completely free. No credit card, no hidden
-                        fees, no catch. We just want to help you succeed in the kitchen.</p>
-                </div>
-
-                <div class="faq-item">
-                    <h3 class="faq-question">What if I'm not good at cooking?</h3>
-                    <p class="faq-answer">Perfect! Our system is designed specifically for people who feel overwhelmed
-                        in the kitchen. Every recipe has step-by-step instructions and uses common ingredients you
-                        already know.</p>
-                </div>
-
-                <div class="faq-item">
-                    <h3 class="faq-question">How long do the recipes really take?</h3>
-                    <p class="faq-answer">Every single recipe is tested to take 30 minutes or less from start to finish.
-                        Most take 20-25 minutes. We value your time as much as you do.</p>
-                </div>
-
-                <div class="faq-item">
-                    <h3 class="faq-question">Can I customize for dietary needs?</h3>
-                    <p class="faq-answer">Absolutely! The templates and strategies work for any dietary
-                        preference—vegetarian, low-carb, gluten-free, you name it. The system is flexible to your needs.
+            <div class="problem-grid">
+                <div class="glass-panel problem-card">
+                    <div class="problem-icon">🧠</div>
+                    <h3>Mental Fog</h3>
+                    <p>The 5:00 PM "What's for dinner?" panic drains your decision-making battery when you need it most.
                     </p>
                 </div>
 
-                <div class="faq-item">
-                    <h3 class="faq-question">What if I don't like meal prepping?</h3>
-                    <p class="faq-answer">Our approach isn't traditional "meal prep." You're not cooking everything on
-                        Sunday. It's a smart planning system that makes daily cooking faster and stress-free.</p>
+                <div class="glass-panel problem-card">
+                    <div class="problem-icon">📉</div>
+                    <h3>Energy Crash</h3>
+                    <p>Restaurant oils and sodium spikes ruin your sleep quality and next-day focus. It's a performance
+                        killer.</p>
                 </div>
 
-                <div class="faq-item">
-                    <h3 class="faq-question">Will my family actually eat these meals?</h3>
-                    <p class="faq-answer">Yes! All recipes are tested with real families. They're designed to appeal to
-                        both adults and kids with familiar flavors and proven crowd-pleasers.</p>
+                <div class="glass-panel problem-card">
+                    <div class="problem-icon">💸</div>
+                    <h3>ROI Negative</h3>
+                    <p>You're paying premium prices for sub-par nutrition. It's the worst recurring subscription you
+                        have.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Final CTA Section -->
-    <section class="final-cta-section">
+    <!-- SOLUTION -->
+    <section class="section-solution" id="protocol">
         <div class="container">
-            <div class="final-cta-content">
-                <h2>Ready to Stop Wasting Hours in the Kitchen?</h2>
-                <p>Join 50,000+ home cooks who've already transformed their meal routines</p>
+            <div class="section-header">
+                <span class="highlight" style="font-weight: 700; letter-spacing: 1px; text-transform: uppercase;">The
+                    Solution</span>
+                <h2>The 15-Minute Nutrition Protocol</h2>
+                <p>We don't teach "recipes." We install a nutrition operating system.</p>
+            </div>
 
-                <a href="#get-started" class="primary-cta large">
-                    <span class="cta-text">Get Your Free Meal Plan</span>
-                    <svg class="cta-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                        <path d="M4 10h12m-6-6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                    </svg>
+            <div class="solution-steps" style="max-width: 800px; margin: 0 auto;">
+                <!-- Step 1 -->
+                <div class="glass-panel step-card">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h3>Automated Planning Algorithm</h3>
+                        <p>Eliminate decision fatigue. Get a generated "Sunday 30" plan that optimizes for zero waste
+                            and maximum variety.</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="glass-panel step-card">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h3>The Batch Protocol</h3>
+                        <p>Use our chef-designed "Component Cooking" method. Prep 12 meals in 90 minutes. High-leverage
+                            activity only.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="glass-panel step-card">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h3>Assembly Execution</h3>
+                        <p>Meals take 5 minutes to assemble daily. Fresh, hot, and perfectly macro-balanced. No robotic
+                            leftovers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MASTERCLASS ROI -->
+    <section class="section-roi" id="masterclass">
+        <div class="container">
+            <div class="roi-card">
+                <div class="roi-badge">LIMITED ACCESS</div>
+
+                <h2 style="margin-bottom: 1rem;">Deploy The Full System</h2>
+                <div style="font-size: 3.5rem; font-weight: 800; color: var(--text-white); margin-bottom: 2rem;">
+                    $49 <span style="font-size: 1.5rem; color: var(--text-muted); font-weight: 400;">/ lifetime</span>
+                </div>
+
+                <div style="text-align: left; display: inline-block; margin-bottom: 2rem;">
+                    <div style="margin-bottom: 0.5rem;">✅ <strong>Video Masterclass Series</strong> (2hrs)</div>
+                    <div style="margin-bottom: 0.5rem;">✅ <strong>Notion Templates & Systems</strong></div>
+                    <div style="margin-bottom: 0.5rem;">✅ <strong>Shopping Algorithms</strong></div>
+                    <div style="margin-bottom: 0.5rem;">✅ <strong>Private Founder Community</strong></div>
+                </div>
+
+                <a href="#" class="btn-primary" style="width: 100%;">
+                    Instant Access
                 </a>
 
-                <p class="final-cta-note">Takes less than 60 seconds • Instant access • Zero commitment</p>
+                <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">30-Day Efficiency Guarantee. Full refund
+                    if you don't save 10 hours.</p>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
+    <footer style="padding: 3rem 0; text-align: center; border-top: 1px solid var(--border-glass);">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <div class="logo">
-                        <img src="logo.jpg" alt="Cooking Rescue" class="logo-img">
-                    </div>
-                    <p>Helping busy people cook better, faster, and with less stress.</p>
-                </div>
-
-                <div class="footer-links">
-                    <div class="footer-col">
-                        <h4>Product</h4>
-                        <a href="#get-started">Free Guide</a>
-                        <a href="#how-it-works">How It Works</a>
-                        <a href="#results">Success Stories</a>
-                    </div>
-
-                    <div class="footer-col">
-                        <h4>Support</h4>
-                        <a href="#faq">FAQ</a>
-                        <a href="#">Contact</a>
-                        <a href="#">Help Center</a>
-                    </div>
-
-                    <div class="footer-col">
-                        <h4>Legal</h4>
-                        <a href="#">Privacy Policy</a>
-                        <a href="#">Terms of Service</a>
-                        <a href="#">Cookie Policy</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2019-2026 CookingRescue. All rights reserved.</p>
-            </div>
+            <p style="opacity: 0.6;">&copy; 2026 CookingRescue Systems.</p>
         </div>
     </footer>
 
-    <script src="app.js"></script>
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+
+    <!-- Chatbot Integration -->
+    <script src="chatbot-config.js"></script>
+    <script src="chatbot.js"></script>
+    <div id="chatbot-root"></div>
+    <script>
+        fetch('chatbot.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('chatbot-root').innerHTML = html;
+                if (typeof CHATBOT_CONFIG !== 'undefined') window.cookingChatbot = new CookingChatbot(CHATBOT_CONFIG);
+            });
+    </script>
 </body>
 
 </html>

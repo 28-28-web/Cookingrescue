@@ -16,6 +16,7 @@
 
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="thank-you.css">
+    <link rel="stylesheet" href="chatbot.css">
 </head>
 
 <body>
@@ -171,6 +172,24 @@
     </footer>
 
     <script src="thank-you.js"></script>
+
+    <!-- AI Chatbot Widget -->
+    <script src="chatbot-config.js"></script>
+    <script src="chatbot.js"></script>
+    <div id="chatbot-root"></div>
+    <script>
+        // Load chatbot HTML and initialize
+        fetch('chatbot.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('chatbot-root').innerHTML = html;
+                // Initialize chatbot after HTML is loaded
+                if (typeof CHATBOT_CONFIG !== 'undefined') {
+                    window.cookingChatbot = new CookingChatbot(CHATBOT_CONFIG);
+                }
+            })
+            .catch(error => console.error('Failed to load chatbot:', error));
+    </script>
 </body>
 
 </html>

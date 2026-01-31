@@ -1,0 +1,61 @@
+<!-- AI Chatbot Widget for CookingRescue.com -->
+<div class="chatbot-container" id="chatbotContainer">
+    <!-- Floating Toggle Button -->
+    <button class="chatbot-toggle-btn" id="chatbotToggle" aria-label="Open chat">
+        <span class="chatbot-icon">💬</span>
+        <span class="chatbot-notification-badge" id="chatbotBadge" style="display: none;">1</span>
+    </button>
+
+    <!-- Chat Window -->
+    <div class="chatbot-window" id="chatbotWindow">
+        <!-- Header -->
+        <div class="chatbot-header">
+            <div class="chatbot-header-content">
+                <div class="chatbot-avatar">🍳</div>
+                <div class="chatbot-header-text">
+                    <h3>Cooking Assistant</h3>
+                    <p><span class="chatbot-status-indicator"></span>Online now</p>
+                </div>
+            </div>
+            <button class="chatbot-close-btn" id="chatbotClose" aria-label="Close chat">×</button>
+        </div>
+
+        <!-- Messages Area -->
+        <div class="chatbot-messages" id="chatbotMessages">
+            <!-- Welcome Message -->
+            <div class="chatbot-welcome">
+                <div class="chatbot-welcome-icon">👋</div>
+                <h4>Hi! I'm your cooking assistant</h4>
+                <p>Ask me anything about recipes, meal planning, cooking techniques, or nutrition!</p>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="chatbot-quick-actions" id="chatbotQuickActions">
+                <button class="chatbot-quick-action-btn" data-message="What are some quick 30-minute dinner ideas?">
+                    🕐 Quick dinner ideas
+                </button>
+                <button class="chatbot-quick-action-btn" data-message="How do I meal prep for the week?">
+                    📅 Meal prep tips
+                </button>
+                <button class="chatbot-quick-action-btn"
+                    data-message="What are healthy substitutes for common ingredients?">
+                    🥗 Healthy substitutes
+                </button>
+                <button class="chatbot-quick-action-btn" data-message="How can I reduce food waste?">
+                    ♻️ Reduce waste
+                </button>
+            </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="chatbot-input-area">
+            <div class="chatbot-input-wrapper">
+                <textarea class="chatbot-input" id="chatbotInput" placeholder="Type your question..." rows="1"
+                    aria-label="Chat message input"></textarea>
+                <button class="chatbot-send-btn" id="chatbotSend" aria-label="Send message">
+                    ➤
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
