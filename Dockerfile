@@ -6,7 +6,8 @@ WORKDIR /app
 COPY . .
 
 # Expose port
-EXPOSE 3000
+EXPOSE 8000
+ENV PORT=8000
 
 # Run the server
 CMD ["python3", "server.py"]
