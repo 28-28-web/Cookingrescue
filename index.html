@@ -2,77 +2,77 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CookingRescue — The Executive Nutrition Protocol</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap"
-        rel="stylesheet" />
-    <!-- Chatbot Styles -->
-    <link rel="stylesheet" href="chatbot.css">
-    <style>
-        /* ─── TOKENS (ADAPTED TO FIRE & CHARCOAL DESIGN) ─── */
-        :root {
-            /* Backgrounds - Dark & Premium */
-            --cream: #36454F;
-            /* Charcoal Base */
-            --warm-white: #2C3942;
-            /* Lighter Charcoal for cards/sections */
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CookingRescue - The Executive Nutrition Protocol</title>
+    <meta name="description"
+        content="Stop outsourcing your health. The 15-minute meal protocol for students and professionals. Save $300/mo and reclaim your energy.">
 
-            /* Text - Light on Dark */
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* ─── TOKENS & RESET ─── */
+        :root {
+            /* Palette: Fire & Charcoal */
+            --charcoal-dark: #1A2228;
+            --charcoal-base: #2C3942;
+            --charcoal-light: #36454F;
+
+            --fire-orange: #FF8C00;
+            --fire-light: #FFA54F;
+            --fire-glow: rgba(255, 140, 0, 0.15);
+
+            --cream: #FAF7F2;
+            --white: #FFFFFF;
             --text-body: #E0E0E0;
             --text-muted: #B0B0B0;
+            --text-on-light: #2C3942;
 
-            /* Brand Colors - Fire Orange */
-            --brown-dark: #FF8C00;
-            /* Main Accent (Headings) -> Fire Orange */
-            --brown-mid: #FFA54F;
-            /* Secondary Accent */
-            --brown-soft: #FFDAB9;
+            --green-success: #4A7C59;
+            --red-alert: #D9534F;
 
-            --accent: #FF8C00;
-            /* Buttons/Links */
-            --accent-lt: #ff9f33;
-            --accent-pale: rgba(255, 140, 0, 0.15);
-            /* Subtle glow */
-
-            --green: #4a7c59;
-            /* Keep green for Trust/Veg icons */
-            --green-lt: #d4edda;
-
-            /* Shadows - Adjusted for Dark Mode */
-            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
-            --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.4);
-            --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.5);
-
-            --radius: 14px;
-            --radius-sm: 8px;
-
-            /* Glassmorphism */
-            --glass: rgba(54, 69, 79, 0.8);
-            --glass-border: rgba(255, 255, 255, 0.08);
+            /* Spacing & Layout */
+            --container-width: 1200px;
+            --section-padding: 100px;
+            --radius-button: 50px;
+            --radius-card: 16px;
         }
 
-        /* ─── RESET ─── */
-        *,
-        *::before,
-        *::after {
+        * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
             font-family: 'DM Sans', sans-serif;
-            background: var(--cream);
+            background-color: var(--charcoal-base);
             color: var(--text-body);
             line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--white);
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        ul {
+            list-style: none;
         }
 
         img {
@@ -80,1223 +80,467 @@
             display: block;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 24px;
         }
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5 {
-            color: #ffffff !important;
+        /* ─── UTILITIES ─── */
+        .text-fire {
+            color: var(--fire-orange);
         }
 
-        /* Force white headings in dark mode */
+        .text-center {
+            text-align: center;
+        }
+
+        .flex-center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 16px 32px;
+            border-radius: var(--radius-button);
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            border: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--fire-orange);
+            color: var(--white);
+            box-shadow: 0 4px 20px rgba(255, 140, 0, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            background: #FF7300;
+            box-shadow: 0 6px 25px rgba(255, 140, 0, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--fire-orange);
+            color: var(--fire-orange);
+        }
 
         /* ─── NAV ─── */
         nav {
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            z-index: 100;
-            background: rgba(54, 69, 79, 0.95);
-            backdrop-filter: blur(14px);
-            border-bottom: 1px solid var(--glass-border);
-            padding: 0 24px;
-            height: 68px;
+            right: 0;
+            height: 80px;
+            background: rgba(44, 57, 66, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-inner {
+            height: 100%;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            transition: box-shadow .3s;
         }
 
-        nav.scrolled {
-            box-shadow: var(--shadow-sm);
+        .logo img {
+            height: 45px;
         }
 
-        .nav-logo {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            font-size: 1.35rem;
-            color: #fff;
+        /* Set specific height for logo */
+
+        .nav-menu {
             display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .nav-logo .icon {
-            width: 34px;
-            height: 34px;
-            background: var(--accent);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .nav-logo .icon svg {
-            width: 18px;
-            height: 18px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 28px;
+            gap: 32px;
             align-items: center;
         }
 
-        .nav-links a {
-            font-size: .88rem;
+        .nav-link {
+            color: var(--text-muted);
             font-weight: 500;
-            color: #E0E0E0;
-            transition: color .2s;
+            font-size: 0.95rem;
         }
 
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-
-        .nav-cta {
-            background: var(--accent);
-            color: #fff;
-            padding: 9px 22px;
-            border-radius: 50px !important;
-            font-size: .85rem;
-            font-weight: 600;
-            transition: background .2s, transform .15s;
-            color: white !important;
-        }
-
-        .nav-cta:hover {
-            background: #ff7300;
-            transform: translateY(-1px);
+        .nav-link:hover {
+            color: var(--fire-orange);
         }
 
         /* ─── HERO ─── */
         .hero {
-            margin-top: 68px;
-            min-height: calc(100vh - 68px);
+            padding-top: 140px;
+            /* Nav spacing */
+            padding-bottom: 80px;
+            position: relative;
+            background: radial-gradient(circle at 70% 30%, #3a4b57 0%, var(--charcoal-base) 60%);
+        }
+
+        .hero-grid {
             display: grid;
-            grid-template-columns: 1.1fr 1fr;
-            gap: 0;
-            position: relative;
-            overflow: hidden;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
+            align-items: center;
         }
 
-        .hero-left {
-            padding: 80px 60px 80px 72px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-tag {
+        .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: var(--accent-pale);
-            color: var(--accent);
-            padding: 6px 14px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 8px 16px;
             border-radius: 50px;
-            font-size: .78rem;
-            font-weight: 600;
-            letter-spacing: .4px;
-            text-transform: uppercase;
-            width: fit-content;
+            font-size: 0.85rem;
+            color: var(--fire-light);
             margin-bottom: 24px;
-        }
-
-        .hero-tag .dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--accent);
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-                opacity: 1
-            }
-
-            50% {
-                opacity: .4
-            }
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.2rem;
-            font-weight: 700;
-            line-height: 1.18;
-            color: #fff;
-            margin-bottom: 20px;
+            font-size: 3.5rem;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
         }
 
-        .hero h1 em {
-            font-style: italic;
-            color: var(--accent);
-        }
-
-        .hero-sub {
-            font-size: 1.05rem;
+        .hero p {
+            font-size: 1.2rem;
             color: var(--text-muted);
-            max-width: 440px;
-            line-height: 1.7;
-            margin-bottom: 36px;
+            margin-bottom: 40px;
+            max-width: 500px;
         }
 
         .hero-actions {
             display: flex;
-            gap: 14px;
-            flex-wrap: wrap;
-            align-items: center;
+            gap: 16px;
+            margin-bottom: 48px;
         }
 
-        .btn-primary {
-            background: var(--accent);
-            color: #fff;
-            padding: 14px 32px;
-            border-radius: 50px;
-            font-size: .92rem;
-            font-weight: 600;
-            box-shadow: 0 4px 18px rgba(212, 118, 58, .35);
-            transition: transform .2s, box-shadow .2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 24px rgba(255, 140, 0, 0.4);
-        }
-
-        .btn-ghost {
-            color: #fff;
-            font-size: .88rem;
-            font-weight: 500;
-            border: 1.5px solid rgba(255, 255, 255, .25);
-            padding: 13px 26px;
-            border-radius: 50px;
-            transition: border-color .2s, color .2s;
-        }
-
-        .btn-ghost:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-
-        /* hero right – visual card stack */
-        .hero-right {
-            position: relative;
+        .trust-bar {
             display: flex;
             align-items: center;
-            justify-content: center;
-            background: linear-gradient(145deg, #2C3942 0%, #1e262c 100%);
+            gap: 24px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            opacity: 0.8;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 24px;
         }
 
+        .trust-bar strong {
+            color: var(--white);
+        }
+
+        /* Fake Video/Visual */
         .hero-visual {
             position: relative;
-            width: 360px;
-            height: 400px;
         }
 
-        .card-stack {
-            position: absolute;
+        .visual-card {
+            background: var(--charcoal-dark);
             border-radius: 20px;
-            background: #252e35;
-            border: 1px solid var(--glass-border);
-            box-shadow: var(--shadow-md);
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            transition: transform .4s cubic-bezier(.34, 1.56, .64, 1);
-        }
-
-        .card-stack:hover {
-            transform: scale(1.02);
-        }
-
-        .cs-main {
-            width: 280px;
-            height: 300px;
-            top: 40px;
-            left: 40px;
-            z-index: 3;
-        }
-
-        .cs-back1 {
-            width: 260px;
-            height: 280px;
-            top: 20px;
-            left: 70px;
-            z-index: 1;
-            transform: rotate(4deg);
-            opacity: .55;
-        }
-
-        .cs-back2 {
-            width: 250px;
-            height: 270px;
-            top: 60px;
-            left: 20px;
-            z-index: 0;
-            transform: rotate(-3deg);
-            opacity: .35;
-        }
-
-        .cs-img {
-            width: 100%;
-            flex: 1;
-            background: linear-gradient(135deg, #465a66 0%, #36454F 100%);
+            padding: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
             position: relative;
             overflow: hidden;
         }
 
-        .cs-img .food-icon {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3.2rem;
-            opacity: .8;
-        }
-
-        .cs-body {
-            padding: 16px 18px;
-        }
-
-        .cs-body h4 {
-            font-family: 'Playfair Display', serif;
-            font-size: .95rem;
-            font-weight: 600;
-            color: #fff;
-            margin-bottom: 4px;
-        }
-
-        .cs-body p {
-            font-size: .76rem;
-            color: var(--text-muted);
-        }
-
-        .cs-badge {
-            position: absolute;
-            bottom: 30px;
-            right: 10px;
-            z-index: 5;
-            background: #2C3942;
-            box-shadow: var(--shadow-md);
-            border: 1px solid var(--glass-border);
-            border-radius: 14px;
-            padding: 12px 16px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0)
-            }
-
-            50% {
-                transform: translateY(-6px)
-            }
-        }
-
-        .cs-badge .badge-icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 10px;
-            background: var(--green-lt);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .cs-badge .badge-text {
-            font-size: .72rem;
-            line-height: 1.4;
-            color: #fff;
-        }
-
-        .cs-badge .badge-text strong {
-            color: var(--green);
-            font-size: .78rem;
-        }
-
-        /* ─── TRUST BAR ─── */
-        .trust-bar {
-            background: var(--warm-white);
-            border-top: 1px solid var(--glass-border);
-            border-bottom: 1px solid var(--glass-border);
-            padding: 28px 48px;
-            display: flex;
-            justify-content: center;
-            gap: 56px;
-            flex-wrap: wrap;
-        }
-
-        .trust-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            opacity: .7;
-        }
-
-        .trust-item svg {
-            width: 20px;
-            height: 20px;
-            color: var(--brown-soft);
-        }
-
-        .trust-item span {
-            font-size: .82rem;
-            font-weight: 500;
-            color: #ddd;
-        }
-
-        /* ─── SECTION COMMONS ─── */
-        section {
-            padding: 100px 48px;
-        }
-
-        .section-label {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--accent);
-            font-size: .78rem;
-            font-weight: 600;
-            letter-spacing: .5px;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-        }
-
-        .section-label::before {
-            content: '';
-            width: 24px;
-            height: 2px;
-            background: var(--accent);
-            border-radius: 2px;
-        }
-
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.3rem;
-            font-weight: 700;
-            color: #fff;
-            line-height: 1.25;
-            max-width: 520px;
-            margin-bottom: 14px;
-        }
-
-        .section-desc {
-            font-size: .95rem;
-            color: var(--text-muted);
-            max-width: 500px;
-            line-height: 1.7;
-        }
-
-        /* ─── WHO IS THIS FOR ─── */
-        .audience {
-            background: var(--warm-white);
-        }
-
-        .audience-inner {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 28px;
-        }
-
-        .aud-card {
-            background: var(--cream);
-            border-radius: var(--radius);
-            padding: 36px 28px;
-            border: 1px solid var(--glass-border);
-            transition: border-color .3s, transform .3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .aud-card::before {
-            content: '';
-            position: absolute;
-            top: -40px;
-            right: -40px;
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            opacity: .12;
-        }
-
-        .aud-card:nth-child(1)::before {
-            background: var(--accent);
-        }
-
-        .aud-card:nth-child(2)::before {
-            background: var(--green);
-        }
-
-        .aud-card:nth-child(3)::before {
-            background: #6b8cce;
-        }
-
-        .aud-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-4px);
-        }
-
-        .aud-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.4rem;
-            margin-bottom: 20px;
-        }
-
-        .aud-card:nth-child(1) .aud-icon {
-            background: var(--accent-pale);
-        }
-
-        .aud-card:nth-child(2) .aud-icon {
-            background: var(--green-lt);
-        }
-
-        .aud-card:nth-child(3) .aud-icon {
-            background: #dce8f5;
-        }
-
-        .aud-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.15rem;
-            font-weight: 600;
-            color: #fff;
-            margin-bottom: 10px;
-        }
-
-        .aud-card p {
-            font-size: .84rem;
-            color: var(--text-muted);
-            line-height: 1.65;
-        }
-
-        /* ─── HOW IT WORKS (3-step) ─── */
-        .how {
-            background: var(--cream);
-            position: relative;
-        }
-
-        .how-inner {
-            max-width: 960px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .how-inner::before {
-            content: '';
-            position: absolute;
-            top: 38px;
-            left: 16%;
-            right: 16%;
-            height: 2px;
-            background: linear-gradient(90deg, var(--accent-lt), var(--accent), var(--accent-lt));
-            z-index: 1;
-            opacity: 0.3;
-        }
-
-        .how-step {
-            text-align: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .step-num {
-            width: 76px;
-            height: 76px;
-            border-radius: 50%;
-            background: var(--warm-white);
-            box-shadow: var(--shadow-sm);
-            border: 3px solid var(--accent-lt);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 24px;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--accent);
-        }
-
-        .how-step h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.05rem;
-            font-weight: 600;
-            color: #fff;
-            margin-bottom: 8px;
-        }
-
-        .how-step p {
-            font-size: .82rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
-
-        /* ─── FEATURED RECIPES ─── */
-        .recipes {
-            background: var(--warm-white);
-        }
-
-        .recipes-grid {
-            max-width: 1100px;
-            margin: 40px auto 0;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-        }
-
-        .recipe-card {
-            border-radius: var(--radius);
-            overflow: hidden;
-            background: var(--cream);
-            border: 1px solid var(--glass-border);
-            transition: transform .3s, box-shadow .3s;
-        }
-
-        .recipe-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .recipe-img {
-            height: 180px;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.6rem;
-        }
-
-        .recipe-card:nth-child(1) .recipe-img {
-            background: linear-gradient(135deg, #5c4c3e, #3e342c);
-        }
-
-        .recipe-card:nth-child(2) .recipe-img {
-            background: linear-gradient(135deg, #4e664f, #354636);
-        }
-
-        .recipe-card:nth-child(3) .recipe-img {
-            background: linear-gradient(135deg, #665947, #473e32);
-        }
-
-        .recipe-card:nth-child(4) .recipe-img {
-            background: linear-gradient(135deg, #4a6073, #324250);
-        }
-
-        .recipe-card:nth-child(5) .recipe-img {
-            background: linear-gradient(135deg, #734b5b, #503440);
-        }
-
-        .recipe-card:nth-child(6) .recipe-img {
-            background: linear-gradient(135deg, #5e5573, #413b50);
-        }
-
-        .recipe-badge {
-            position: absolute;
-            top: 14px;
-            left: 14px;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(6px);
-            padding: 5px 11px;
-            border-radius: 50px;
-            font-size: .7rem;
-            font-weight: 600;
-            color: #fff;
-        }
-
-        .recipe-body {
-            padding: 20px;
-        }
-
-        .recipe-body h4 {
-            font-family: 'Playfair Display', serif;
-            font-size: .95rem;
-            font-weight: 600;
-            color: #fff;
-            margin-bottom: 6px;
-        }
-
-        .recipe-body p {
-            font-size: .78rem;
-            color: var(--text-muted);
-            margin-bottom: 12px;
-        }
-
-        .recipe-meta {
-            display: flex;
-            gap: 16px;
-        }
-
-        .recipe-meta span {
-            font-size: .72rem;
-            color: var(--text-muted);
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .recipe-meta svg {
-            width: 12px;
-            height: 12px;
-        }
-
-        .recipes-cta {
-            text-align: center;
-            margin-top: 48px;
-        }
-
-        /* ─── SOCIAL PROOF ─── */
-        .proof {
-            background: linear-gradient(160deg, #1A2228 0%, #2C3942 100%);
-            color: #fff;
-        }
-
-        .proof .section-label {
-            color: var(--accent-lt);
-        }
-
-        .proof .section-title {
-            color: #fff;
-        }
-
-        .proof .section-desc {
-            color: rgba(255, 255, 255, .6);
-        }
-
-        .proof-grid {
-            max-width: 1000px;
-            margin: 48px auto 0;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-        }
-
-        .proof-card {
-            background: rgba(255, 255, 255, .05);
-            border: 1px solid rgba(255, 255, 255, .08);
-            border-radius: var(--radius);
-            padding: 28px 24px;
-            transition: background .3s;
-        }
-
-        .proof-card:hover {
-            background: rgba(255, 255, 255, .09);
-        }
-
-        .proof-stars {
-            color: var(--accent-lt);
-            font-size: .85rem;
-            margin-bottom: 14px;
-            letter-spacing: 2px;
-        }
-
-        .proof-card blockquote {
-            font-size: .84rem;
-            line-height: 1.7;
-            color: rgba(255, 255, 255, .75);
-            font-style: italic;
-            margin-bottom: 18px;
-        }
-
-        .proof-author {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .proof-avatar {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: .82rem;
-            font-weight: 600;
-            color: #fff;
-        }
-
-        .proof-card:nth-child(1) .proof-avatar {
-            background: #d4763a;
-        }
-
-        .proof-card:nth-child(2) .proof-avatar {
-            background: #4a7c59;
-        }
-
-        .proof-card:nth-child(3) .proof-avatar {
-            background: #6b8cce;
-        }
-
-        .proof-author-info {
-            font-size: .76rem;
-        }
-
-        .proof-author-info strong {
-            color: #fff;
-            display: block;
-        }
-
-        .proof-author-info span {
-            color: rgba(255, 255, 255, .45);
-        }
-
-        /* ─── STATS ROW ─── */
-        .stats {
-            background: var(--cream);
-            padding: 60px 48px;
-        }
-
-        .stats-inner {
-            max-width: 900px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-        }
-
-        .stat-item {
+        /* ─── TAKEOUT CALCULATOR (PROBLEM) ─── */
+        .section-problem {
+            background: var(--charcoal-dark);
+            padding: 80px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .calc-header {
+            margin-bottom: 40px;
             text-align: center;
         }
 
-        .stat-num {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: #fff;
-        }
-
-        .stat-num span {
-            color: var(--accent);
-        }
-
-        .stat-label {
-            font-size: .78rem;
-            color: var(--text-muted);
-            margin-top: 4px;
-        }
-
-        /* ─── FREE LEAD MAGNET ─── */
-        .magnet {
-            background: var(--warm-white);
-        }
-
-        .magnet-inner {
-            max-width: 900px;
-            margin: 0 auto;
-            background: linear-gradient(135deg, #42525C 0%, #2C3942 100%);
-            border-radius: 24px;
-            padding: 64px 56px;
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 56px;
-            align-items: center;
-            box-shadow: var(--shadow-lg);
-            position: relative;
-            overflow: hidden;
-            border: 1px solid var(--glass-border);
-        }
-
-        .magnet-inner::before {
-            content: '';
-            position: absolute;
-            top: -80px;
-            right: -80px;
-            width: 280px;
-            height: 280px;
-            border-radius: 50%;
-            background: var(--accent);
-            opacity: .06;
-        }
-
-        .magnet-inner::after {
-            content: '';
-            position: absolute;
-            bottom: -60px;
-            left: -60px;
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background: var(--brown-dark);
-            opacity: .04;
-        }
-
-        .magnet-left {
-            position: relative;
-            z-index: 2;
-        }
-
-        .magnet-left h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.9rem;
-            font-weight: 700;
-            color: #fff;
-            line-height: 1.3;
-            margin-bottom: 14px;
-        }
-
-        .magnet-left p {
-            font-size: .88rem;
-            color: var(--text-muted);
-            line-height: 1.7;
-            margin-bottom: 24px;
-        }
-
-        .magnet-perks {
-            list-style: none;
-        }
-
-        .magnet-perks li {
-            font-size: .84rem;
-            color: #ddd;
-            padding: 6px 0;
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-        }
-
-        .magnet-perks .check {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: var(--green-lt);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            margin-top: 1px;
-        }
-
-        .magnet-perks .check svg {
-            width: 11px;
-            height: 11px;
-            color: var(--green);
-        }
-
-        .magnet-right {
-            position: relative;
-            z-index: 2;
-        }
-
-        .magnet-form {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
-
-        .magnet-form input {
-            padding: 13px 18px;
-            border-radius: 10px;
-            border: 1.5px solid rgba(255, 255, 255, .15);
-            font-size: .86rem;
-            font-family: inherit;
-            background: rgba(255, 255, 255, 0.05);
-            color: #fff;
-            transition: border-color .2s;
-            outline: none;
-        }
-
-        .magnet-form input:focus {
-            border-color: var(--accent);
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .magnet-form input::placeholder {
-            color: rgba(255, 255, 255, 0.4);
-        }
-
-        .magnet-form button {
-            background: var(--accent);
-            color: #fff;
-            padding: 14px;
-            border: none;
-            border-radius: 10px;
-            font-size: .88rem;
-            font-weight: 600;
-            font-family: inherit;
-            cursor: pointer;
-            transition: background .2s, transform .15s;
-        }
-
-        .magnet-form button:hover {
-            background: #FF7300;
-            transform: translateY(-1px);
-        }
-
-        .magnet-trust {
-            font-size: .7rem;
-            color: var(--text-muted);
-            text-align: center;
-            margin-top: 4px;
-        }
-
-        /* ─── FAQ ─── */
-        .faq {
-            background: var(--cream);
-        }
-
-        .faq-inner {
-            max-width: 680px;
-            margin: 40px auto 0;
-        }
-
-        .faq-item {
-            border-bottom: 1px solid rgba(255, 255, 255, .1);
-            padding: 22px 0;
-        }
-
-        .faq-q {
-            font-size: .92rem;
-            font-weight: 600;
-            color: #fff;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            user-select: none;
-        }
-
-        .faq-q .icon {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            background: var(--warm-white);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform .3s;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .faq-item.open .faq-q .icon {
-            transform: rotate(45deg);
-        }
-
-        .faq-a {
-            font-size: .83rem;
-            color: var(--text-muted);
-            line-height: 1.7;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height .35s ease, padding .3s;
-        }
-
-        .faq-item.open .faq-a {
-            max-height: 200px;
-            padding-top: 12px;
-        }
-
-        /* ─── FOOTER ─── */
-        footer {
-            background: #1A2228;
-            color: rgba(255, 255, 255, .6);
-            padding: 60px 48px 32px;
-        }
-
-        .footer-inner {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1.8fr 1fr 1fr 1fr;
-            gap: 40px;
-        }
-
-        .footer-brand .nav-logo {
-            color: #fff;
-            margin-bottom: 14px;
-        }
-
-        .footer-brand p {
-            font-size: .8rem;
-            line-height: 1.7;
-            max-width: 260px;
-        }
-
-        .footer-col h4 {
-            font-size: .78rem;
-            font-weight: 600;
-            color: #fff;
-            text-transform: uppercase;
-            letter-spacing: .6px;
+        .calc-header h2 {
+            font-size: 2.5rem;
             margin-bottom: 16px;
         }
 
-        .footer-col a {
+        .calculator-box {
+            background: var(--charcoal-light);
+            border-radius: 24px;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .calc-inputs label {
             display: block;
-            font-size: .8rem;
-            color: rgba(255, 255, 255, .5);
-            padding: 4px 0;
-            transition: color .2s;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            color: var(--text-muted);
         }
 
-        .footer-col a:hover {
-            color: var(--accent-lt);
+        .calc-range {
+            width: 100%;
+            margin-bottom: 24px;
+            -webkit-appearance: none;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            outline: none;
         }
 
-        .footer-bottom {
-            max-width: 1100px;
-            margin: 40px auto 0;
-            padding-top: 24px;
-            border-top: 1px solid rgba(255, 255, 255, .08);
-            display: flex;
-            justify-content: space-between;
-            font-size: .74rem;
-        }
-
-        .social-row {
-            display: flex;
-            gap: 14px;
-            margin-top: 18px;
-        }
-
-        .social-row a {
-            width: 34px;
-            height: 34px;
+        .calc-range::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, .08);
+            background: var(--fire-orange);
+            cursor: pointer;
+        }
+
+        .calc-result-box {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .calc-big-num {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--fire-orange);
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .calc-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+
+        /* ─── SOLUTION (FUNNEL) ─── */
+        .section-solution {
+            padding: var(--section-padding) 0;
+        }
+
+        .funnel-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 60px;
+        }
+
+        .step-card {
+            background: var(--charcoal-light);
+            padding: 40px 32px;
+            border-radius: var(--radius-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .step-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--fire-orange);
+        }
+
+        .step-num {
+            font-size: 4rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.03);
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            line-height: 1;
+        }
+
+        .step-icon {
+            font-size: 2rem;
+            margin-bottom: 24px;
+            display: inline-block;
+        }
+
+        .step-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+
+        .step-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        /* ─── SOCIAL PROOF ─── */
+        .section-proof {
+            background: var(--charcoal-dark);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .proof-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .review-card {
+            background: var(--charcoal-base);
+            padding: 32px;
+            border-radius: 16px;
+            text-align: left;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .stars {
+            color: var(--fire-orange);
+            margin-bottom: 16px;
+            letter-spacing: 2px;
+        }
+
+        .review-text {
+            font-size: 0.95rem;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .reviewer {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--white);
+        }
+
+        .reviewer span {
+            font-weight: 400;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            display: block;
+        }
+
+        /* ─── OFFER (MASTERCLASS) ─── */
+        .section-offer {
+            background: radial-gradient(circle at 50% 50%, #4a3b2a 0%, var(--charcoal-base) 100%);
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .offer-box {
+            background: rgba(26, 34, 40, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--fire-orange);
+            border-radius: 32px;
+            padding: 60px;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            box-shadow: 0 20px 80px rgba(255, 140, 0, 0.15);
+        }
+
+        .scarcity-badge {
+            background: var(--red-alert);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+            display: inline-block;
+        }
+
+        .offer-price {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--white);
+            margin: 24px 0;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .offer-price span {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .perks-list {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .perk {
             display: flex;
             align-items: center;
-            justify-content: center;
-            color: rgba(255, 255, 255, .5);
-            transition: background .2s, color .2s;
+            gap: 8px;
+            color: var(--text-body);
         }
 
-        .social-row a:hover {
-            background: var(--accent);
-            color: #fff;
-        }
-
-        .social-row svg {
-            width: 15px;
-            height: 15px;
-        }
-
-        /* ─── ANIMATIONS ─── */
-        .reveal {
-            opacity: 0;
-            transform: translateY(24px);
-            transition: opacity .6s ease, transform .6s ease;
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .perk svg {
+            color: var(--green-success);
         }
 
         /* ─── RESPONSIVE ─── */
-        @media(max-width:900px) {
-            .hero {
+        @media (max-width: 768px) {
+            .hero-grid {
                 grid-template-columns: 1fr;
+                text-align: center;
             }
 
-            .hero-right {
-                display: none;
+            .hero-actions {
+                justify-content: center;
             }
 
-            .hero-left {
-                padding: 60px 32px;
+            .trust-bar {
+                justify-content: center;
+                flex-wrap: wrap;
             }
 
             .hero h1 {
-                font-size: 2.4rem;
+                font-size: 2.5rem;
             }
 
-            .audience-inner {
+            .calculator-box {
                 grid-template-columns: 1fr;
             }
 
-            .how-inner {
+            .funnel-steps {
                 grid-template-columns: 1fr;
-                gap: 32px;
-            }
-
-            .how-inner::before {
-                display: none;
-            }
-
-            .recipes-grid {
-                grid-template-columns: 1fr 1fr;
             }
 
             .proof-grid {
                 grid-template-columns: 1fr;
             }
 
-            .stats-inner {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .magnet-inner {
-                grid-template-columns: 1fr;
-                padding: 40px 32px;
-            }
-
-            .footer-inner {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media(max-width:600px) {
-            section {
-                padding: 70px 24px;
-            }
-
-            .trust-bar {
-                padding: 20px 24px;
-                gap: 24px;
-            }
-
-            .recipes-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .stats-inner {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .nav-links {
+            .nav-menu {
                 display: none;
             }
 
-            .footer-inner {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                gap: 8px;
-            }
+            /* Hide menu on mobile for now */
         }
     </style>
 </head>
@@ -1304,539 +548,271 @@
 <body>
 
     <!-- NAV -->
-    <nav id="mainNav">
-        <div class="nav-logo">
-            <div class="icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <path d="M3 11h18M5 11V9a7 7 0 0114 0v2M8 21h8M10 17v4M14 17v4" />
-                </svg>
+    <nav>
+        <div class="container nav-inner">
+            <a href="#" class="logo">
+                <img src="https://cookingrescue.com/wp-content/uploads/2025/12/cropped-Cooking-Rescue-Logo-scaled-1.png"
+                    alt="CookingRescue">
+            </a>
+            <div class="nav-menu">
+                <a href="#problem" class="nav-link">The Problem</a>
+                <a href="#solution" class="nav-link">The Protocol</a>
+                <a href="#reviews" class="nav-link">Reviews</a>
+                <a href="https://cookingrescue.com/blog" class="nav-link">Blog</a>
+                <a href="#offer" class="btn btn-primary" style="padding: 10px 24px; font-size: 0.9rem;">Join
+                    Masterclass</a>
             </div>
-            CookingRescue
-        </div>
-        <div class="nav-links">
-            <a href="#recipes">Recipes</a>
-            <a href="#magnet">Free Guide</a>
-            <a href="https://cookingrescue.com/blog">Blog</a> <!-- Added Blog Button -->
-            <a href="https://free.cookingrescue.com" class="nav-cta">Get Free eBook →</a>
-            <!-- Added Free eBook Button -->
         </div>
     </nav>
 
-    <!-- HERO -->
+    <!-- HERO SECTION -->
     <section class="hero">
-        <div class="hero-left">
-            <div class="hero-tag"><span class="dot"></span> Real meals. Real life. No stress.</div>
-            <h1>Cooking should feel<br /><em>easy, not impossible.</em></h1>
-            <p class="hero-sub">
-                Quick microwave recipes for students, busy professionals, and anyone who's tired of choosing between
-                takeout and guilt. No fancy skills needed.
-            </p>
-            <div class="hero-actions">
-                <a href="https://free.cookingrescue.com" class="btn-primary">
-                    Get the Free 7-Day Guide
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M5 12h14M12 5l7 7-7 7" />
-                    </svg>
-                </a>
-                <a href="https://cookingrescue.com/blog" class="btn-ghost">Read Full Blog</a>
-            </div>
-        </div>
-        <div class="hero-right">
-            <div class="hero-visual">
-                <div class="card-stack cs-back2">
-                    <div class="cs-img" style="background:linear-gradient(135deg,#465a66 0%, #36454F 100%)">
-                        <div class="food-icon">🥗</div>
+        <div class="container">
+            <div class="hero-grid">
+                <div>
+                    <div class="hero-badge">✨ Trusted by 50,000+ Students & Pros</div>
+                    <h1>Stop Outsourcing Your <span class="text-fire">Health</span> to DoorDash.</h1>
+                    <p>The 15-Minute Nutrition Protocol engineered for high-performance individuals. Reclaim 12+
+                        hours/week and automate your nutrition without the mental load.</p>
+
+                    <div class="hero-actions">
+                        <a href="#free-guide" class="btn btn-primary">Get Free Protocol</a>
+                        <a href="#offer" class="btn btn-secondary">View Masterclass</a>
                     </div>
-                    <div class="cs-body">
-                        <h4>Salad Bowl</h4>
-                        <p>5 min · Beginner</p>
+
+                    <div class="trust-bar">
+                        <span>Featured in:</span>
+                        <strong>StudentLife</strong>
+                        <strong>BudgetBytes</strong>
+                        <strong>LifeHacker</strong>
                     </div>
                 </div>
-                <div class="card-stack cs-back1">
-                    <div class="cs-img" style="background:linear-gradient(135deg,#5e5573,#413b50)">
-                        <div class="food-icon">🍝</div>
+
+                <div class="hero-visual">
+                    <div class="visual-card">
+                        <!-- Simulated Assembly Video Placeholder -->
+                        <div
+                            style="background: #222; border-radius: 12px; height: 350px; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                            <div style="font-size: 4rem; margin-bottom: 20px;">🍲</div>
+                            <div style="color: white; font-weight: 700;">15-Minute Assembly</div>
+                            <div style="color: var(--text-muted); font-size: 0.9rem; margin-top: 8px;">Real time: 14:32
+                            </div>
+                            <!-- Progress Bar Simulation -->
+                            <div
+                                style="width: 200px; height: 4px; background: rgba(255,255,255,0.1); margin-top: 20px; border-radius: 4px; overflow: hidden;">
+                                <div style="width: 60%; height: 100%; background: var(--fire-orange);"></div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="cs-body">
-                        <h4>Garlic Pasta</h4>
-                        <p>12 min · Easy</p>
-                    </div>
-                </div>
-                <div class="card-stack cs-main">
-                    <div class="cs-img">
-                        <div class="food-icon">🍲</div>
-                    </div>
-                    <div class="cs-body">
-                        <h4>Chicken Rice Bowl</h4>
-                        <p>15 min · Beginner-Friendly</p>
-                    </div>
-                </div>
-                <div class="cs-badge">
-                    <div class="badge-icon">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4a7c59" stroke-width="2.5"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
-                            <polyline points="22 4 12 14.01 9 11.01" />
-                        </svg>
-                    </div>
-                    <div class="badge-text"><strong>Save $300+/mo</strong><br />vs. eating out</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- TRUST BAR -->
-    <div class="trust-bar">
-        <div class="trust-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                <circle cx="9" cy="7" r="4" />
-                <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
-            </svg>
-            <span>12,400+ Home Cooks</span>
-        </div>
-        <div class="trust-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-                <circle cx="12" cy="12" r="10" />
-                <polyline points="12 6 12 12 16 14" />
-            </svg>
-            <span>Meals Under 30 Min</span>
-        </div>
-        <div class="trust-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-            </svg>
-            <span>Tested & Verified Recipes</span>
-        </div>
-        <div class="trust-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-                <polygon
-                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-            </svg>
-            <span>4.8 / 5 Rating</span>
-        </div>
-    </div>
+    <!-- PROBLEM: CALCULATOR -->
+    <section class="section-problem" id="problem">
+        <div class="container">
+            <div class="calc-header">
+                <h2>The Hidden Cost of "Convenience"</h2>
+                <p style="color: var(--text-muted);">See exactly what the "Takeout Tax" is costing you annually.</p>
+            </div>
 
-    <!-- WHO IS THIS FOR -->
-    <section class="audience" id="audience">
-        <div style="text-align:center; margin-bottom:52px;">
-            <div class="section-label reveal">Who this is for</div>
-            <h2 class="section-title reveal" style="max-width:100%; margin:0 auto 12px;">Sound like you?</h2>
-            <p class="section-desc reveal" style="max-width:100%; margin:0 auto;">No cooking experience needed. If you
-                have a microwave, you're set.</p>
-        </div>
-        <div class="audience-inner">
-            <div class="aud-card reveal">
-                <div class="aud-icon">🎓</div>
-                <h3>Students & Dorm Dwellers</h3>
-                <p>Living on a tight budget with only a microwave and a tiny kitchen. These recipes cost under $3 each
-                    and actually taste good. No more living on ramen.</p>
-            </div>
-            <div class="aud-card reveal">
-                <div class="aud-icon">💼</div>
-                <h3>Busy Professionals</h3>
-                <p>You work long hours. By the time you get home, cooking feels like another task on the list. Our
-                    15-minute meals mean dinner is ready before your shoes come off.</p>
-            </div>
-            <div class="aud-card reveal">
-                <div class="aud-icon">🌍</div>
-                <h3>People Living Abroad</h3>
-                <p>New city, unfamiliar grocery stores, missing home food. These recipes use simple ingredients you can
-                    find anywhere — and some even taste like home.</p>
+            <div class="calculator-box">
+                <div class="calc-inputs">
+                    <label>How many times do you order out per week?</label>
+                    <input type="range" class="calc-range" id="ordersPerWeek" min="1" max="14" value="5"
+                        oninput="updateCalculator()">
+                    <div style="display: flex; justify-content: space-between; color: white;">
+                        <span>1x</span>
+                        <span id="ordersDisplay" class="text-fire" style="font-weight: 700;">5x</span>
+                        <span>14x</span>
+                    </div>
+
+                    <br>
+
+                    <label>Average cost per order ($)</label>
+                    <input type="range" class="calc-range" id="costPerOrder" min="10" max="60" value="35"
+                        oninput="updateCalculator()">
+                    <div style="display: flex; justify-content: space-between; color: white;">
+                        <span>$10</span>
+                        <span id="costDisplay" class="text-fire" style="font-weight: 700;">$35</span>
+                        <span>$60</span>
+                    </div>
+                </div>
+
+                <div class="calc-result-box">
+                    <div class="calc-label">You are lighting this much on fire annually:</div>
+                    <div class="calc-big-num" id="annualInches">$9,100</div>
+                    <div class="calc-label" style="margin-top: 16px;">Plus ~150 hours waiting for delivery.</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- HOW IT WORKS -->
-    <section class="how" id="how">
-        <div style="text-align:center; margin-bottom:60px;">
-            <div class="section-label reveal">The process</div>
-            <h2 class="section-title reveal" style="max-width:100%; margin:0 auto 12px;">Three steps. That's it.</h2>
-            <p class="section-desc reveal" style="max-width:100%; margin:0 auto;">No meal prep chaos. No complicated
-                planning. Just simple steps that work.</p>
-        </div>
-        <div class="how-inner">
-            <div class="how-step reveal">
-                <div class="step-num">1</div>
-                <h3>Pick a Recipe</h3>
-                <p>Browse by meal type, time, or budget. Every recipe is sorted so you find what you need in seconds.
-                </p>
+    <!-- SOLUTION: THE PROTOCOL (FUNNEL) -->
+    <section class="section-solution" id="solution">
+        <div class="container">
+            <div class="text-center" style="max-width: 700px; margin: 0 auto;">
+                <span class="text-fire" style="font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">The
+                    Ecosystem</span>
+                <h2 style="margin-top: 16px;">We don't teach "Recipes".<br>We install a System.</h2>
             </div>
-            <div class="how-step reveal">
-                <div class="step-num">2</div>
-                <h3>Grab the Ingredients</h3>
-                <p>Each recipe includes a simple shopping list. Most items cost under $5 total. Nothing exotic.</p>
-            </div>
-            <div class="how-step reveal">
-                <div class="step-num">3</div>
-                <h3>Cook & Enjoy</h3>
-                <p>Follow step-by-step instructions. Most meals are done in under 15 minutes. That's the whole thing.
-                </p>
-            </div>
-        </div>
-    </section>
 
-    <!-- STATS -->
-    <div class="stats">
-        <div class="stats-inner">
-            <div class="stat-item reveal">
-                <div class="stat-num">200<span>+</span></div>
-                <div class="stat-label">Tested Recipes</div>
-            </div>
-            <div class="stat-item reveal">
-                <div class="stat-num">$<span>3</span></div>
-                <div class="stat-label">Avg Cost Per Meal</div>
-            </div>
-            <div class="stat-item reveal">
-                <div class="stat-num">15<span>min</span></div>
-                <div class="stat-label">Avg Cook Time</div>
-            </div>
-            <div class="stat-item reveal">
-                <div class="stat-num">4.8<span>★</span></div>
-                <div class="stat-label">Community Rating</div>
-            </div>
-        </div>
-    </div>
+            <div class="funnel-steps">
+                <!-- Step 1 (Lead Magnet) -->
+                <div class="step-card" id="free-guide">
+                    <div class="step-num">01</div>
+                    <div class="step-icon">📜</div>
+                    <h3 class="step-title">The Foundation</h3>
+                    <p class="step-desc">Get the Free 7-Day Protocol. A complete PDF guide to resetting your kitchen
+                        workflow.</p>
 
-    <!-- FEATURED RECIPES -->
-    <section class="recipes" id="recipes">
-        <div style="text-align:center; margin-bottom:12px;">
-            <div class="section-label reveal">Popular right now</div>
-            <h2 class="section-title reveal" style="max-width:100%; margin:0 auto 10px;">Recipes people actually make
-            </h2>
-            <p class="section-desc reveal" style="max-width:100%; margin:0 auto;">Simple. Fast. Genuinely good. These
-                are the ones people come back to.</p>
-        </div>
-        <div class="recipes-grid">
-            <div class="recipe-card reveal">
-                <div class="recipe-img">
-                    🍲
-                    <span class="recipe-badge">⏱ 15 min</span>
+                    <!-- BREVO FORM EMBED -->
+                    <form id="brevo-form" style="display: flex; flex-direction: column; gap: 12px;">
+                        <input type="text" id="fn" placeholder="First Name"
+                            style="padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.2); color: white;">
+                        <input type="email" id="email" placeholder="Email Address" required
+                            style="padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.2); color: white;">
+                        <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 0.9rem;">Send Me
+                            The Guide</button>
+                    </form>
+                    <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 12px; text-align: center;">Join
+                        25,000+ subscribers.</p>
                 </div>
-                <div class="recipe-body">
-                    <h4>Chicken Rice Bowl</h4>
-                    <p>Soy-glazed chicken over fluffy rice with veggies. Fills you up without the guilt.</p>
-                    <div class="recipe-meta">
-                        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10" />
-                                <polyline points="12 6 12 12 16 14" />
-                            </svg>15 min</span>
-                        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                            </svg>Beginner</span>
+
+                <!-- Step 2 (Tripwire) -->
+                <div class="step-card">
+                    <div class="step-num">02</div>
+                    <div class="step-icon">📊</div>
+                    <h3 class="step-title">The Tools</h3>
+                    <p class="step-desc">Budget Meal Planner. Automated Notion template to track costs and macros.</p>
+                    <div class="text-fire" style="font-weight: 700; font-size: 1.5rem; margin-bottom: 16px;">$9 <span
+                            style="font-size: 0.9rem; color: var(--text-muted); font-weight: 400;">/ one-time</span>
                     </div>
+                    <a href="#" class="btn btn-secondary" style="width: 100%; justify-content: center;">Get The
+                        Planner</a>
+                </div>
+
+                <!-- Step 3 (Core Offer) -->
+                <div class="step-card" style="border-color: var(--fire-orange);">
+                    <div class="step-num">03</div>
+                    <div class="step-icon">🎓</div>
+                    <h3 class="step-title">The Academy</h3>
+                    <p class="step-desc">CookingRescue Masterclass. Video library, community access, and advanced
+                        techniques.</p>
+                    <div class="text-fire" style="font-weight: 700; font-size: 1.5rem; margin-bottom: 16px;">$49 <span
+                            style="font-size: 0.9rem; color: var(--text-muted); font-weight: 400;">/ lifetime</span>
+                    </div>
+                    <a href="#offer" class="btn btn-primary" style="width: 100%; justify-content: center;">Join
+                        Academy</a>
                 </div>
             </div>
-            <div class="recipe-card reveal">
-                <div class="recipe-img">
-                    🥗
-                    <span class="recipe-badge">⏱ 8 min</span>
-                </div>
-                <div class="recipe-body">
-                    <h4>Green Protein Bowl</h4>
-                    <p>Packed with nutrients. Takes under 10 minutes and keeps you full all afternoon.</p>
-                    <div class="recipe-meta">
-                        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10" />
-                                <polyline points="12 6 12 12 16 14" />
-                            </svg>8 min</span>
-                        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                            </svg>Beginner</span>
-                    </div>
-                </div>
-            </div>
-            <div class="recipe-card reveal">
-                <div class="recipe-img">
-                    🍝
-                    <span class="recipe-badge">⏱ 12 min</span>
-                </div>
-                <div class="recipe-body">
-                    <h4>Garlic Butter Pasta</h4>
-                    <p>Creamy, comforting, and costs about $1.50 to make. Tastes way better than it should.</p>
-                    <div class="recipe-meta">
-                        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10" />
-                                <polyline points="12 6 12 12 16 14" />
-                            </svg>12 min</span>
-                        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                            </svg>Easy</span>
-                    </div>
-                </div>
-            </div>
-            <div class="recipe-card reveal">
-                <div class="recipe-img">
-                    🍳
-                    <span class="recipe-badge">⏱ 10 min</span>
-                </div>
-                <div class="recipe-body">
-                    <h4>Microwave Breakfast Wrap</h4>
-                    <p>Eggs, cheese, veggies in a tortilla. Done before your coffee finishes brewing.</p>
-                    <div class="recipe-meta">
-                        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10" />
-                                <polyline points="12 6 12 12 16 14" />
-                            </svg>10 min</span>
-                        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                            </svg>Beginner</span>
-                    </div>
-                </div>
-            </div>
-            <div class="recipe-card reveal">
-                <div class="recipe-img">
-                    🧆
-                    <span class="recipe-badge">⏱ 18 min</span>
-                </div>
-                <div class="recipe-body">
-                    <h4>Black Bean Tacos</h4>
-                    <p>Budget-friendly and surprisingly filling. Add toppings you already have in the fridge.</p>
-                    <div class="recipe-meta">
-                        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10" />
-                                <polyline points="12 6 12 12 16 14" />
-                            </svg>18 min</span>
-                        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                            </svg>Easy</span>
-                    </div>
-                </div>
-            </div>
-            <div class="recipe-card reveal">
-                <div class="recipe-img">
-                    🍕
-                    <span class="recipe-badge">⏱ 14 min</span>
-                </div>
-                <div class="recipe-body">
-                    <h4>Tortilla Pizza</h4>
-                    <p>Crispy, cheesy, and done in minutes. The ultimate lazy dinner that still feels homemade.</p>
-                    <div class="recipe-meta">
-                        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10" />
-                                <polyline points="12 6 12 12 16 14" />
-                            </svg>14 min</span>
-                        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                            </svg>Easy</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="recipes-cta">
-            <a href="https://cookingrescue.com/category/recipes/" class="btn-primary" style="display:inline-flex;">
-                See All Recipes
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-            </a>
         </div>
     </section>
 
     <!-- SOCIAL PROOF -->
-    <section class="proof" id="proof">
-        <div style="text-align:center; margin-bottom:48px;">
-            <div class="section-label">What people say</div>
-            <h2 class="section-title" style="max-width:100%; margin:0 auto 10px; color:#fff;">Real people. Real results.
-            </h2>
-            <p class="section-desc" style="max-width:100%; margin:0 auto;">Not cherry-picked. These are from actual
-                community members.</p>
-        </div>
-        <div class="proof-grid">
-            <div class="proof-card reveal">
-                <div class="proof-stars">★★★★★</div>
-                <blockquote>"I used to order takeout almost every night. Now I actually cook. The chicken rice bowl
-                    alone saved me hundreds a month."</blockquote>
-                <div class="proof-author">
-                    <div class="proof-avatar">SK</div>
-                    <div class="proof-author-info">
-                        <strong>Sarah K.</strong>
-                        <span>Marketing Manager, Toronto</span>
-                    </div>
+    <section class="section-proof" id="reviews">
+        <div class="container">
+            <h2>Results, Not Promises.</h2>
+            <div class="proof-grid">
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <div class="review-text">"I used to spend $600/mo on UberEats. Last month I spent $220 on groceries
+                        and ate better food. The math is undeniable."</div>
+                    <div class="reviewer">Sarah Jenkins <span>Medical Student</span></div>
                 </div>
-            </div>
-            <div class="proof-card reveal">
-                <div class="proof-stars">★★★★★</div>
-                <blockquote>"I'm an international student with basically no kitchen. These microwave recipes actually
-                    taste like real food. Not just survivable food."</blockquote>
-                <div class="proof-author">
-                    <div class="proof-avatar">MT</div>
-                    <div class="proof-author-info">
-                        <strong>Michael T.</strong>
-                        <span>Graduate Student, London</span>
-                    </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <div class="review-text">"The 15-minute rule is real. I timed it. Chicken Rice Bowl took me 12
+                        minutes. Why did I ever think cooking was hard?"</div>
+                    <div class="reviewer">Marcus Chen <span>Software Engineer</span></div>
                 </div>
-            </div>
-            <div class="proof-card reveal">
-                <div class="proof-stars">★★★★★</div>
-                <blockquote>"The meal prep guide changed my Sundays. I spend 30 minutes, and then I don't have to think
-                    about dinner all week."</blockquote>
-                <div class="proof-author">
-                    <div class="proof-avatar">JL</div>
-                    <div class="proof-author-info">
-                        <strong>Jennifer L.</strong>
-                        <span>Working Mom, Chicago</span>
-                    </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <div class="review-text">"The Masterclass paid for itself in week one. Just the 'Batch Protocol'
+                        video saved me 3 hours on Sunday."</div>
+                    <div class="reviewer">Jessica T. <span>Marketing Manager</span></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FREE LEAD MAGNET -->
-    <section class="magnet" id="magnet">
-        <div class="magnet-inner">
-            <div class="magnet-left">
-                <h2>Get your free<br />7-Day Meal Starter Guide</h2>
-                <p>A simple weekly plan with recipes, a grocery list, and prep tips. Everything you need to stop
-                    stressing about dinner — starting tonight.</p>
-                <ul class="magnet-perks">
-                    <li>
-                        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="20 6 9 17 4 12" />
-                            </svg></span>
-                        7 days of breakfast, lunch, and dinner
-                    </li>
-                    <li>
-                        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="20 6 9 17 4 12" />
-                            </svg></span>
-                        One consolidated grocery list under $50
-                    </li>
-                </ul>
-            </div>
-            <div class="magnet-right">
-                <form id="brevo-form" class="magnet-form">
-                    <input type="text" id="fn" placeholder="Your first name" required />
-                    <input type="email" id="email" placeholder="Your email address" required />
-                    <button type="submit">Send Me the Free Guide →</button>
-                    <p class="magnet-trust">No spam. Unsubscribe anytime. We respect your inbox.</p>
-                </form>
+    <!-- OFFER SECTION -->
+    <section class="section-offer" id="offer">
+        <div class="container">
+            <div class="offer-box">
+                <span class="scarcity-badge">Limited Enrollment</span>
+                <h2>Deploy The Full System</h2>
+                <p style="color: var(--text-muted); max-width: 600px; margin: 16px auto;">Get immediate access to the
+                    Video Masterclass, all templates, the community, and the budget planner.</p>
+
+                <div class="offer-price">$49 <span>/ one-time</span></div>
+
+                <div class="perks-list">
+                    <div class="perk"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="3">
+                            <polyline points="20 6 9 17 4 12" />
+                        </svg> 20+ Video Modules</div>
+                    <div class="perk"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="3">
+                            <polyline points="20 6 9 17 4 12" />
+                        </svg> Notion Templates</div>
+                    <div class="perk"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="3">
+                            <polyline points="20 6 9 17 4 12" />
+                        </svg> Private Discord</div>
+                    <div class="perk"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="3">
+                            <polyline points="20 6 9 17 4 12" />
+                        </svg> 30-Day Guarantee</div>
+                </div>
+
+                <button class="btn btn-primary" style="padding: 20px 48px; font-size: 1.2rem;">Join The Academy
+                    Now</button>
+                <div style="margin-top: 16px; font-size: 0.8rem; color: var(--text-muted);">Secure SSL Payment • Instant
+                    Access</div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ -->
-    <section class="faq" id="faq">
-        <div style="text-align:center; margin-bottom:12px;">
-            <div class="section-label reveal">Questions</div>
-            <h2 class="section-title reveal" style="max-width:100%; margin:0 auto;">Quick answers</h2>
-        </div>
-        <div class="faq-inner">
-            <div class="faq-item" onclick="toggleFaq(this)">
-                <div class="faq-q">
-                    Do I need any cooking experience?
-                    <div class="icon">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)"
-                            stroke-width="2.5" stroke-linecap="round">
-                            <line x1="12" y1="5" x2="12" y2="19" />
-                            <line x1="5" y1="12" x2="19" y2="12" />
-                        </svg>
-                    </div>
-                </div>
-                <div class="faq-a">No. Every recipe is written for complete beginners. If you can read and press buttons
-                    on a microwave, you can follow these. We skip the confusing chef jargon.
-                </div>
+    <footer
+        style="padding: 60px 0; background: var(--charcoal-dark); border-top: 1px solid rgba(255,255,255,0.05); text-align: center; color: var(--text-muted); font-size: 0.9rem;">
+        <div class="container">
+            <p>&copy; 2026 CookingRescue Systems. All rights reserved.</p>
+            <div style="display: flex; gap: 24px; justify-content: center; margin-top: 16px;">
+                <a href="#" style="color: var(--text-muted);">Privacy</a>
+                <a href="#" style="color: var(--text-muted);">Terms</a>
+                <a href="#" style="color: var(--text-muted);">Contact</a>
             </div>
-            <div class="faq-item" onclick="toggleFaq(this)">
-                <div class="faq-q">
-                    Is the guide really free? No strings?
-                    <div class="icon">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)"
-                            stroke-width="2.5" stroke-linecap="round">
-                            <line x1="12" y1="5" x2="12" y2="19" />
-                            <line x1="5" y1="12" x2="19" y2="12" />
-                        </svg>
-                    </div>
-                </div>
-                <div class="faq-a">Yes — genuinely free. You get the full 7-day guide with no hidden paywall. The
-                    optional $49 Masterclass is separate, and we'll never pressure you into it.
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-inner">
-            <div class="footer-brand">
-                <div class="nav-logo" style="color:#fff;">
-                    <div class="icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <path d="M3 11h18M5 11V9a7 7 0 0114 0v2M8 21h8M10 17v4M14 17v4" />
-                        </svg>
-                    </div>
-                    CookingRescue
-                </div>
-                <p>Easy microwave recipes for real life. No fluff, no complicated techniques — just food you can
-                    actually make and enjoy.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Recipes</h4>
-                <a href="https://cookingrescue.com/category/recipes/beginners-cooking/">Beginner Recipes</a>
-                <a href="https://cookingrescue.com/category/microwave-cooking-en/microwave-main-dishes-en/">Main
-                    Dishes</a>
-            </div>
-            <div class="footer-col">
-                <h4>Guides</h4>
-                <a href="https://cookingrescue.com/category/guides-tips/">Tips & Guides</a>
-                <a href="https://cookingrescue.com/blog">Read Full Blog</a> <!-- Added Blog Link -->
-            </div>
-            <div class="footer-col">
-                <h4>About</h4>
-                <a href="https://cookingrescue.com/about/">Our Story</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <span>© 2026 CookingRescue. All rights reserved.</span>
         </div>
     </footer>
 
-    <!-- Chatbot Root -->
-    <div id="chatbot-root"></div>
-
     <!-- SCRIPTS -->
-    <script src="app.js"></script> <!-- Link to existing app.js for form handling -->
-    <script src="chatbot-config.js"></script>
-    <script src="chatbot.js"></script>
-
+    <script src="app.js"></script>
     <script>
-        // Nav shadow on scroll
-        const nav = document.getElementById('mainNav');
-        window.addEventListener('scroll', () => {
-            nav.classList.toggle('scrolled', window.scrollY > 20);
-        });
+        // Calculator Logic
+        function updateCalculator() {
+            const orders = document.getElementById('ordersPerWeek').value;
+            const cost = document.getElementById('costPerOrder').value;
 
-        // Scroll reveal
-        const reveals = document.querySelectorAll('.reveal');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((e, i) => {
-                if (e.isIntersecting) {
-                    setTimeout(() => e.target.classList.add('visible'), i * 80);
-                    observer.unobserve(e.target);
-                }
+            document.getElementById('ordersDisplay').innerText = orders + 'x';
+            document.getElementById('costDisplay').innerText = '$' + cost;
+
+            const weekly = orders * cost;
+            const annual = weekly * 52;
+
+            // Format currency
+            const formatter = new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                maximumFractionDigits: 0
             });
-        }, { threshold: 0.12 });
-        reveals.forEach(el => observer.observe(el));
 
-        // FAQ accordion
-        function toggleFaq(item) {
-            const wasOpen = item.classList.contains('open');
-            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-            if (!wasOpen) item.classList.add('open');
+            document.getElementById('annualInches').innerText = formatter.format(annual);
         }
 
-        // Chatbot loader
-        fetch('chatbot.html')
-            .then(response => response.text())
-            .then(html => {
-                document.getElementById('chatbot-root').innerHTML = html;
-                if (typeof CHATBOT_CONFIG !== 'undefined') window.cookingChatbot = new CookingChatbot(CHATBOT_CONFIG);
-            });
+        // Init calc
+        updateCalculator();
     </script>
 </body>
 
