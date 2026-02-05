@@ -1,18 +1,20 @@
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 import json
 import urllib.request
-import urllib.parse
-from urllib.error import HTTPError
+import urllib.error
 import os
 
-# Brevo Configuration - Use environment variables in production
-BREVO_API_KEY = os.getenv('BREVO_API_KEY')
-BREVO_LIST_ID = int(os.getenv('BREVO_LIST_ID', '9'))
-BREVO_API_URL = 'https://api.brevo.com/v3/contacts'
+# Configuration
+# ---------------------------------------------------------
+# Keys are safely loaded from the Server Environment
+GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY') 
+BREVO_API_KEY = os.environ.get('BREVO_API_KEY')
+# Default list ID to 9 if not found
+BREVO_LIST_ID = int(os.environ.get('BREVO_LIST_ID', '9')) 
+# ---------------------------------------------------------
 
-class BrevoHandler(SimpleHTTPRequestHandler):
+class RequestHandler(SimpleHTTPRequestHandler):
     def do_OPTIONS(self):
-        """Handle preflight CORS requests"""
         self.send_response(200)
         self.send_header('Access-Control-Allow-Origin', '*')
         self.send_header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS')
@@ -20,86 +22,115 @@ class BrevoHandler(SimpleHTTPRequestHandler):
         self.end_headers()
     
     def do_POST(self):
-        """Handle POST requests to /api/subscribe"""
         if self.path == '/api/subscribe':
-            try:
-                # Read request body
-                content_length = int(self.headers['Content-Length'])
-                post_data = self.rfile.read(content_length)
-                data = json.loads(post_data.decode('utf-8'))
-                
-                first_name = data.get('firstName', '')
-                email = data.get('email', '')
-                
-                # Validate
-                if not first_name or not email:
-                    self.send_error_response(400, 'First name and email are required')
-                    return
-                
-                # Prepare Brevo API request
-                brevo_data = {
-                    'email': email,
-                    'attributes': {
-                        'FIRSTNAME': first_name
-                    },
-                    'listIds': [BREVO_LIST_ID],
-                    'updateEnabled': True
-                }
-                
-                # Call Brevo API
-                req = urllib.request.Request(
-                    BREVO_API_URL,
-                    data=json.dumps(brevo_data).encode('utf-8'),
-                    headers={
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json',
-                        'api-key': BREVO_API_KEY
-                    },
-                    method='POST'
-                )
-                
-                try:
-                    with urllib.request.urlopen(req) as response:
-                        self.send_success_response({'success': True, 'message': 'Successfully subscribed!'})
-                except HTTPError as e:
-                    error_body = e.read().decode('utf-8')
-                    print(f'Brevo API Error: {error_body}')
-                    self.send_error_response(e.code, 'Failed to subscribe to Brevo')
-                    
-            except json.JSONDecodeError:
-                self.send_error_response(400, 'Invalid JSON')
-            except Exception as e:
-                print(f'Server Error: {str(e)}')
-                self.send_error_response(500, 'Internal server error')
+            self.handle_subscribe()
+        elif self.path == '/api/chat':
+            self.handle_chat()
         else:
-            self.send_error_response(404, 'Not found')
-    
-    def send_success_response(self, data):
-        """Send JSON success response"""
-        self.send_response(200)
-        self.send_header('Content-Type', 'application/json')
-        self.send_header('Access-Control-Allow-Origin', '*')
-        self.end_headers()
-        self.wfile.write(json.dumps(data).encode('utf-8'))
-    
-    def send_error_response(self, code, message):
-        """Send JSON error response"""
+            self.send_error(404)
+
+    def handle_subscribe(self):
+        try:
+            length = int(self.headers['Content-Length'])
+            data = json.loads(self.rfile.read(length))
+            
+            if not data.get('email') or not data.get('firstName'):
+                return self.send_json(400, {'success': False, 'message': 'Missing fields'})
+
+            if not BREVO_API_KEY:
+                print("Error: BREVO_API_KEY not set")
+                return self.send_json(500, {'success': False, 'message': 'Server Config Error'})
+
+            url = 'https://api.brevo.com/v3/contacts'
+            payload = {
+                'email': data['email'],
+                'attributes': {'FIRSTNAME': data['firstName']},
+                'listIds': [BREVO_LIST_ID],
+                'updateEnabled': True
+            }
+            
+            req = urllib.request.Request(
+                url,
+                data=json.dumps(payload).encode('utf-8'),
+                headers={
+                    'Content-Type': 'application/json',
+                    'api-key': BREVO_API_KEY
+                },
+                method='POST'
+            )
+            
+            with urllib.request.urlopen(req) as response:
+                self.send_json(200, {'success': True})
+                
+        except Exception as e:
+            print(f"Subscribe Error: {e}")
+            self.send_json(500, {'success': False, 'message': str(e)})
+
+    def handle_chat(self):
+        try:
+            length = int(self.headers['Content-Length'])
+            data = json.loads(self.rfile.read(length))
+            user_msg = data.get('message')
+
+            system_prompt = """You are a helpful cooking assistant for CookingRescue.com.
+            Keep answers short (under 3 sentences) and practical.
+            Focus on: 15-minute meals, meal prep, and saving money on food.
+            Be friendly."""
+
+            if not GEMINI_API_KEY:
+                print("Error: GEMINI_API_KEY not set")
+                return self.send_json(500, {'message': "Server Config Error: Missing AI Key"})
+
+            # Google Gemini API
+            url = f'https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key={GEMINI_API_KEY}'
+            
+            payload = {
+                "contents": [{
+                    "parts": [{"text": f"{system_prompt}\n\nUser: {user_msg}"}]
+                }]
+            }
+
+            req = urllib.request.Request(
+                url,
+                data=json.dumps(payload).encode('utf-8'),
+                headers={'Content-Type': 'application/json'},
+                method='POST'
+            )
+
+            with urllib.request.urlopen(req) as response:
+                result = json.loads(response.read())
+                # Parse Gemini Response
+                try:
+                    ai_text = result['candidates'][0]['content']['parts'][0]['text']
+                except (KeyError, IndexError):
+                    ai_text = "I'm having trouble thinking of a recipe right now. Please try again."
+                
+                self.send_json(200, {'response': ai_text})
+
+        except urllib.error.HTTPError as e:
+            err_msg = e.read().decode()
+            print(f"API Error: {err_msg}")
+            try:
+                err_json = json.loads(err_msg)
+                clean_error = err_json.get('error', {}).get('message', err_msg)
+            except:
+                clean_error = err_msg
+            self.send_json(500, {'message': f"API Error: {clean_error}"})
+        except Exception as e:
+            print(f"Chat Error: {e}")
+            self.send_json(500, {'message': "Connection error."})
+
+    def send_json(self, code, data):
         self.send_response(code)
         self.send_header('Content-Type', 'application/json')
         self.send_header('Access-Control-Allow-Origin', '*')
         self.end_headers()
-        error_data = {'success': False, 'message': message}
-        self.wfile.write(json.dumps(error_data).encode('utf-8'))
-    
-    def end_headers(self):
-        """Override to add CORS headers to all responses"""
-        self.send_header('Access-Control-Allow-Origin', '*')
-        SimpleHTTPRequestHandler.end_headers(self)
+        self.wfile.write(json.dumps(data).encode('utf-8'))
 
 if __name__ == '__main__':
-    PORT = int(os.getenv('PORT', '3000'))
-    server = HTTPServer(('0.0.0.0', PORT), BrevoHandler)
-    print(f'Server running at http://0.0.0.0:{PORT}')
-    print(f'API endpoint: http://0.0.0.0:{PORT}/api/subscribe')
-    print('Press Ctrl+C to stop')
-    server.serve_forever()
+    port = int(os.getenv('PORT', 3000))
+    print(f"Starting server on port {port}...")
+    try:
+        HTTPServer(('0.0.0.0', port), RequestHandler).serve_forever()
+    except KeyboardInterrupt:
+        pass
