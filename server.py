@@ -4,14 +4,10 @@ import urllib.request
 import urllib.error
 import os
 
-# Configuration
-# ---------------------------------------------------------
-# Keys are safely loaded from the Server Environment
+# Configuration: LOAD FROM COOLIFY (No secrets in code!)
 GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY') 
 BREVO_API_KEY = os.environ.get('BREVO_API_KEY')
-# Default list ID to 9 if not found
 BREVO_LIST_ID = int(os.environ.get('BREVO_LIST_ID', '9')) 
-# ---------------------------------------------------------
 
 class RequestHandler(SimpleHTTPRequestHandler):
     def do_OPTIONS(self):
@@ -38,8 +34,7 @@ class RequestHandler(SimpleHTTPRequestHandler):
                 return self.send_json(400, {'success': False, 'message': 'Missing fields'})
 
             if not BREVO_API_KEY:
-                print("Error: BREVO_API_KEY not set")
-                return self.send_json(500, {'success': False, 'message': 'Server Config Error'})
+                return self.send_json(500, {'success': False, 'message': 'Server Config Error: Missing Brevo Key'})
 
             url = 'https://api.brevo.com/v3/contacts'
             payload = {
@@ -52,10 +47,7 @@ class RequestHandler(SimpleHTTPRequestHandler):
             req = urllib.request.Request(
                 url,
                 data=json.dumps(payload).encode('utf-8'),
-                headers={
-                    'Content-Type': 'application/json',
-                    'api-key': BREVO_API_KEY
-                },
+                headers={'Content-Type': 'application/json', 'api-key': BREVO_API_KEY},
                 method='POST'
             )
             
@@ -63,7 +55,6 @@ class RequestHandler(SimpleHTTPRequestHandler):
                 self.send_json(200, {'success': True})
                 
         except Exception as e:
-            print(f"Subscribe Error: {e}")
             self.send_json(500, {'success': False, 'message': str(e)})
 
     def handle_chat(self):
@@ -72,23 +63,14 @@ class RequestHandler(SimpleHTTPRequestHandler):
             data = json.loads(self.rfile.read(length))
             user_msg = data.get('message')
 
-            system_prompt = """You are a helpful cooking assistant for CookingRescue.com.
-            Keep answers short (under 3 sentences) and practical.
-            Focus on: 15-minute meals, meal prep, and saving money on food.
-            Be friendly."""
+            system_prompt = "You are a helpful cooking assistant for CookingRescue.com. Keep answers short, practical, and friendly."
 
             if not GEMINI_API_KEY:
-                print("Error: GEMINI_API_KEY not set")
                 return self.send_json(500, {'message': "Server Config Error: Missing AI Key"})
 
-            # Google Gemini API
             url = f'https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key={GEMINI_API_KEY}'
             
-            payload = {
-                "contents": [{
-                    "parts": [{"text": f"{system_prompt}\n\nUser: {user_msg}"}]
-                }]
-            }
+            payload = { "contents": [{ "parts": [{"text": f"{system_prompt}\n\nUser: {user_msg}"}] }] }
 
             req = urllib.request.Request(
                 url,
@@ -99,7 +81,6 @@ class RequestHandler(SimpleHTTPRequestHandler):
 
             with urllib.request.urlopen(req) as response:
                 result = json.loads(response.read())
-                # Parse Gemini Response
                 try:
                     ai_text = result['candidates'][0]['content']['parts'][0]['text']
                 except (KeyError, IndexError):
@@ -108,16 +89,8 @@ class RequestHandler(SimpleHTTPRequestHandler):
                 self.send_json(200, {'response': ai_text})
 
         except urllib.error.HTTPError as e:
-            err_msg = e.read().decode()
-            print(f"API Error: {err_msg}")
-            try:
-                err_json = json.loads(err_msg)
-                clean_error = err_json.get('error', {}).get('message', err_msg)
-            except:
-                clean_error = err_msg
-            self.send_json(500, {'message': f"API Error: {clean_error}"})
+            self.send_json(500, {'message': f"API Error: {e.code}"})
         except Exception as e:
-            print(f"Chat Error: {e}")
             self.send_json(500, {'message': "Connection error."})
 
     def send_json(self, code, data):
