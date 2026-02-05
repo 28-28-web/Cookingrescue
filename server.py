@@ -4,7 +4,7 @@ import urllib.request
 import urllib.error
 import os
 
-# Configuration: LOAD FROM COOLIFY (No secrets in code!)
+# LOAD CONFIG FROM COOLIFY (Safe!)
 GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY') 
 BREVO_API_KEY = os.environ.get('BREVO_API_KEY')
 BREVO_LIST_ID = int(os.environ.get('BREVO_LIST_ID', '9')) 
