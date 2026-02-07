@@ -1,13 +1,16 @@
-FROM python:3.11-slim
+FROM python:3.9-slim
 
 WORKDIR /app
 
-# Copy all files
-COPY . .
+# Copy server file
+COPY server.py .
 
-# Expose port
-EXPOSE 8000
-ENV PORT=8000
+# Environment setup
+ENV PYTHONUNBUFFERED=1
+ENV PORT=3000
 
-# Run the server
-CMD ["python3", "server.py"]
+# Install any potential dependencies (though we use stdlib, this is good practice to have the step)
+# RUN pip install requests # Uncomment if needed later
+
+# Start command
+CMD ["python", "server.py"]
