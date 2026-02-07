@@ -270,7 +270,7 @@ Template Name: Sales Homepage (Fire & Charcoal)
                     <h3 class="step-title">The Tools</h3>
                     <p class="step-desc">Budget Meal Planner. Automated Notion template to track costs and macros.</p>
                     <div class="text-fire" style="font-weight: 700; font-size: 1.5rem; margin-bottom: 16px;">$9 <span style="font-size: 0.9rem; color: var(--text-muted); font-weight: 400;">/ one-time</span></div>
-                    <a href="https://cookingrescue.gumroad.com/l/sijgb" class="btn btn-secondary" style="width: 100%; justify-content: center;">Get The Planner</a>
+                    <a href="https://cookingrescue.gumroad.com/l/sijgb?wanted=true" class="btn btn-secondary" style="width: 100%; justify-content: center;">Get The Planner</a>
                 </div>
                 <!-- Step 3 -->
                 <div class="step-card" style="border-color: var(--fire-orange);">
